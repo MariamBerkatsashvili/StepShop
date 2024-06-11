@@ -1,0 +1,226 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.searchbox{
+  float:right;
+  display: flex;
+  flex-direction: row;
+  width:10vw;
+}
+
+#search{
+  float:right;
+  display: flex;
+  flex-direction: column;
+  width:6rem;
+  border-radius: 10px;
+  border: 1px solid #E2C2AD;
+  margin:auto;
+  margin-bottom: 10px;
+}
+#search:hover, #search:active{
+  transform: scale(1.1);
+  color:#4089ED;
+  margin:auto
+}
+
+
+.relative {
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+}
+
+.absolute {
+  float: left;
+  width: 100px;
+}
+
+h2{
+    font-family: "Montez", cursive;
+    font-family: "Montserrat Subrayada", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin:30px 20px;
+    color: #bbb;
+}
+
+h2:hover{
+    transition: all linear 0.5s;
+    color:#4089ED;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.center-vertically {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.container {
+    /* width: 600px; */
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap:4%;
+    margin: auto;
+}
+
+.container .card {
+  margin-top:50px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.container .card .card-top img {
+  width: 90%;
+  margin-left:-30px;
+  margin-top: -30px;
+  border-radius: 8px;
+}
+/* .card{
+  height:300px;
+  width:150px;
+} */
+.card .card-top .likes {
+  position: absolute;
+  font-size: 0.5rem;
+  top: -15px;
+  right: 100px;
+}
+
+.card .card-top .card-side {
+  position: absolute;
+  right:0;
+  top:0;
+  background-color: #E2C2AD;
+  border-top-right-radius: 10px;
+  width:81px;
+  height:150px;
+  padding-top: 15px;
+  border-bottom-left-radius: 10px;
+}
+
+
+.card .card-top .card-side .score {
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height:60px;
+  background-color: #4089ED;
+  font-size:0.8rem;
+  color:rgba(218, 165, 32, 1);
+  border-bottom-left-radius: 10px;
+}
+
+.card .card-description {
+  width: 100%;
+  padding:30px 15px;
+  height: 100px;
+}
+
+.card .card-description .productName {
+  display: flex;
+  font-size: 0.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.card .card-description .productName  {
+  font-size: 12px;
+  color: #e7a364e3;
+  margin-left: 8px;
+  margin-top: 5px;
+  /* padding:2px; */
+}
+
+
+.card .card-description .productInfo {
+  font-size: 0.75rem;
+  margin-top:5px;
+  text-transform: uppercase;
+  color: #bbb;
+}
+
+.card .card-description #button {
+  font-size: 12px;
+  background-color: #4089ED;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer; 
+  border:1px solid #E2C2AD;
+}
+#addBtn {
+  font-size: 12px;
+  background-color: #4089ED;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer; 
+  border:1px solid #E2C2AD;
+}
+#button, #addBtn{
+    height:50px;
+    width:100px;
+}
+#button:hover, #addBtn:hover{
+  transform: scale(0.8);
+  transition: all linear 0.3s;
+}
+
+img:hover{
+    border:5px #4089ED solid;
+    transition: 0.7s;
+    opacity: 80%;
+    
+}
+
+.filter {
+    width: 200px;
+    /* margin: 40px 20px; */
+    border:1px dotted #e7a364e3;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top:70px;
+    margin-left: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.filterbox label {
+    font-size: 12px;
+    color: #4089ED;
+    margin-left:5px;
+}
+
+
+.filterbox input[type="checkbox"]:checked + label {
+    color: #4089ED;
+    margin-right: 5px;
+}
+
+.category{
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    color: #e7a364e3;
+    margin-bottom: 10px;   
+}
+
+
+
+

@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css?family=Pontano+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Montez&family=Montserrat+Subrayada:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+*, ::before, ::after{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* background-color:  #121212  ; */
+}
+
+
+.button{
+    width: 200px;
+    height:60px;
+    border: #458FF6 solid 2px;
+    color:#458FF6;
+    border-radius: 55px;
+    
+}
+.button:hover{
+    color:#ffffff; 
+    background-color: #67c2f3c6;  
+    transform: scale(0.8);
+}
+.button > a {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 13px;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 18px;
+}
+
+h2{
+    height:56px;
+    font-weight: bold;
+    font-size: 36px;
+    justify-content: center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

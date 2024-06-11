@@ -1,0 +1,137 @@
+body {
+  font-family: 'Pontano Sans', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  text-rendering: optimizeLegibility; }
+  
+.free-shipping {
+  color: #fff;
+  font-size: 0.65rem;
+  background-color: #4089ED;
+  border: 0;
+  border-radius: 0.9rem;
+  padding: 0.3rem 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+#card1{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.product-image{
+  width:50%
+}
+
+ul li {
+  list-style: none; 
+  margin: 0 1.75rem 0 0; 
+}
+
+a {
+  color: #888;
+  text-decoration: none;
+  transition: all 0.2s ease; }
+
+h1, h2, h3, h4 {
+  color: #bdac9d;
+  margin: 10px ;
+  font-size: medium;
+}
+p{
+  font-size: small;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover; 
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  list-style: none; 
+}
+
+.list li {
+    font-size: 0.85rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase; 
+}
+
+
+.item + .item::before {
+  content: '/';
+  display: inline-block;
+  padding: 0 0.5rem;
+  color: #d5d5d5; 
+}
+
+.description {
+  border-top: 0.0625rem solid #e3dddd;
+  margin: 2rem 0;
+  padding: 1rem 0 0 0; 
+  font-family: "Dancing Script", cursive;
+}
+
+.add-to-cart {
+  position: relative;
+  display: inline-block;
+  background: #bdac9d;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: translateZ(0);
+  transition: color 0.3s ease;
+  letter-spacing: 0.0625rem; 
+  border-radius: 10px;
+}
+
+.add-to-cart:hover::before {
+  transform: scaleX(1); 
+  border-radius: 10px;
+}
+
+.add-to-cart::before {
+  position: absolute;
+  content: '';
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #4089ED;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.3s ease-out; 
+  border-radius: 10px;
+}
+
+.container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 75rem;
+  width: 100%; }
+
+
+#card1{
+    display: flex; 
+    flex-direction: row;
+}
+
+@media screen and (max-width: 755px) {
+    #card1{
+        flex-direction: column;
+    }
+}  

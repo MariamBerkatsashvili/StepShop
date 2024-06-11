@@ -1,0 +1,46 @@
+
+
+<section class="contact-page-section">
+    <div class="container">
+        <div class="title">Contact Us</div>
+        <div class="contactInfo">
+          <div class="row">
+                <div class="form-column col-md-8 col-sm-12 col-xs-12">
+                  <div class="inner-column"> 
+                        <div class="contact-form">
+                            <form method="post" [formGroup]="contactForm" (ngSubmit)="sendInfo()">
+                                <div class="row clearfix">
+                                    <div class="form-group col-md-6 col-sm-6 co-xs-12"><input type="text" name="name" placeholder="Full Name" required formControlName="fullName"></div>
+                                    <div class="form-group col-md-6 col-sm-6 co-xs-12"><input type="email" email name="email" placeholder="Email" required formControlName="email" formControlName="email2"></div>
+                                    <div class="form-group col-md-6 col-sm-6 co-xs-12"><input type="text" name="subject" placeholder="Subject" required formControlName="subject"></div>
+                                    <div class="form-group col-md-6 col-sm-6 co-xs-12"><input type="text" name="phone" placeholder="Phone" required formControlName="phone" formControlName="phone2"> </div>
+                                    <div class="form-group"><textarea name="message" placeholder="Massage"></textarea></div>
+                                    <div class="form-group "><button type="submit" id="button" 
+                                        [disabled]="contactForm.invalid"
+                                        (click)="sendInfo()"
+                                        >Send Now</button></div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-column col-md-4 col-sm-12 col-xs-12">
+                  <div class="inner-column ">
+                      <h2 style="color: #fff;  margin-top:20px">Contact Info</h2>
+                      <ul class="list-info">
+                        <li><img src="/assets/images/location-dot-solid.svg">  Tbilisi, Georgia</li>
+                          <li><img src="/assets/images/envelope-solid.svg">  mberkatsashvili@gmail.com</li>
+                          <li><img src="/assets/images/phone-solid.svg">  +995591110075</li>
+                      </ul>
+                      
+                      <div class="container map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d759290.2305734216!2d44.436591916254706!3d41.97929363938931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440cd7e64f626b%3A0x4f907964122d4ac2!2z4YOh4YOQ4YOl4YOQ4YOg4YOX4YOV4YOU4YOa4YOd!5e0!3m2!1ska!2sge!4v1716801881121!5m2!1ska!2sge" 
+                          width="80%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+      
+  </section>

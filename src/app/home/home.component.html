@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="other-bg image">
+    <h1 (click)="randomizer()">ShopShop</h1>
+    <p>click to see other products</p>
+  </div>
+
+   
+  <div class="imgDiv">
+    <img id="image" [src]='this.randomProduct.thumbnail' alt="">
+    <button [routerLink]="'/item/'+randomProduct.id">Click to <br>See details</button>
+  </div>
+  
+</div>

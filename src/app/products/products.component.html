@@ -1,0 +1,99 @@
+
+
+<h2> Discover the perfect products for all your needs </h2>
+
+<div class="filter absolute container" >
+
+    <!-- <div class="searchbox" >
+        <label for="searchingBar" style="width:15px"><i class="bi bi-search"></i></label>
+        <input id="search" name="searchingBar" type="text" [(ngModel)]="searchingBar" (input)="updateSearchingBar()" placeholder='Search... '  >
+    </div>
+     -->
+      
+     <!-- <mat-slider min="0" [max]="maxPrice" discrete showTickMarks color="primary" class="danger" >
+        <input value="0" matSliderStartThumb class="danger">
+        <input value="{{maxPrice}}" matSliderEndThumb>
+      </mat-slider> -->
+
+
+    <div class="filterbox container" >
+        
+        
+        <div class="category">
+                <input type="radio" name="check1" id="check1"  value="all"
+            [(ngModel)] = "selectedCategory" (change)="filterCategories()">
+            <label for="check1">All PRODUCTS</label>
+            <div class="counter"> ({{everything()}})</div>
+        </div>
+
+        <div class="category">
+            <input type="radio" name="check2" id="check2"  value='beauty'
+            [(ngModel)] = "selectedCategory" (change)="filterCategories()">
+            <label for="check2">BEAUTY</label>
+            <div class="counter"> ({{beauty()}})</div>
+        </div>
+
+        <div class="category">
+            <input type="radio" name="check3" id="check3"  value='fragrances'
+            [(ngModel)] = "selectedCategory" (change)="filterCategories()">
+            <label for="check3">FRAGRANCES</label>
+            <div class="counter"> ({{fragrances()}})</div>
+        </div>
+
+        <div class="category">
+            <input type="radio" name="check4" id="check4"  value='furniture'
+            [(ngModel)] = "selectedCategory" (change)="filterCategories()">
+            <label for="check4">FURNITURE</label>
+            <div class="counter"> ({{furniture()}})</div>
+        </div>
+
+        <div class="category">
+            <input type="radio" name="check5" id="check5" value='groceries'
+            [(ngModel)] = "selectedCategory" (change)="filterCategories()">
+            <label for="check5">GROCERIES</label>
+            <div class="counter"> ({{groceries()}})</div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+ <div class="container wrapper center mt-5 relative " >
+    <ng-container *ngFor="let product of products">
+        <div class="card mb-5" *ngIf="this.selectedCategory==='all' || selectedCategory===product.category" [routerLink]="'/item/'+product.id">
+      
+            <div class="card-top">
+
+                <img [src]='product.thumbnail'>
+                
+                <div class="card-side">
+                    <div class="center" style="color:#fff; align-content: center; ">{{product.price | currency:'₾' }}  </div>
+                    
+                    <div class="center" style="color:#fff; align-content: center; font-size: 12px; margin-top:10px;" 
+                    [ngStyle]="{'color': product.stock > 10 ? '#4089ED' : 'red'}"
+                    *ngIf="product.stock > 0; else notAvailable">{{product.stock}} in stock </div>
+                    <ng-template #notAvailable>
+                        <div class="center" style="color:#fff; align-content: center; font-size: 12px;"  
+                        [ngStyle]="{'background-color': product.stock > 0 ? '#E2C2AD' : 'red'}"> Not Available </div>
+                    </ng-template>
+
+                    <div class="score center"> <i class="bi bi-star" ></i> {{product.rating}}  </div>
+                </div>
+            </div>
+            <div class="card-description row">
+            <div class="col-md-7">
+                <div class="productName"> {{product.title}}  </div>
+                <div class="productInfo "><i class="bi bi-tags"></i> {{product.category}}</div>
+            </div>
+            <div class="col-md-5 center-vertically">
+                <button id="button" [routerLink]="'/item/'+product.id" > <i class="bi bi-info-square"></i></button>
+                <button id="addBtn" (click)="addtoCart(product)" routerLink="/cart"> <i class="bi bi-cart-plus"></i> </button>
+            </div>
+           
+            </div>
+        </div>
+    </ng-container>
+
+ </div>

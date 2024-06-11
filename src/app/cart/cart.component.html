@@ -1,0 +1,70 @@
+<div class="container"> <h1 style="color: #E2C2AD"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#E2C2AD" class="bi bi-bag-heart" viewBox="0 0 16 16" >
+  <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+</svg> Shopping Cart</h1></div>
+
+
+  <div class="container" *ngIf="products.length === 0" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div style="margin-top:50px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#E2C2AD" class="bi bi-bag-heart" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+      </svg></div>
+    <div><p style="margin-top:50px; color: #4089ED; font-family: 'Libre Barcode 128 Text', system-ui; font-size: 40px;"> Your Shopping Cart is Empty </p></div>
+    <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4089ED" class="bi bi-cart-x" viewBox="0 0 16 16">
+      <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z"/>
+      <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+      </svg></div>
+    <div><button style="margin-top:50px; color: #E2C2AD" routerLink="/products" id="toShopBtn">  Return to Shop   </button> </div>
+</div>
+
+
+<section class="container" >
+<div class="shopping-cart container " *ngIf="products.length !=0">
+  
+  <div class="column-labels">
+    <label class="product-image">Image</label>
+    <label class="product-details">Product</label>
+    <label class="product-price">Price</label>
+    <label class="product-quantity">Quantity</label>
+    <label class="product-removal">Remove</label>
+    <label class="product-line-price">Total</label>
+  </div>
+   
+  <div class="product  " *ngFor="let product of products; ">
+    <div class="product-image" [routerLink]="'/item/'+product.id" > <img [src]="product.thumbnail" ></div>
+    <div class="product-details">
+      <div class="product-title">{{product.title}}</div>
+      <p class="product-description">{{product.description}}</p>
+      <p class="product-description" style="color:gold"><i class="bi bi-star"></i> {{product.rating}}</p>
+      <p class="product-description" style="color:#4089ED">{{product.stock}} pcs. in stock</p>
+    </div>
+    <div class="product-price">{{product.price | currency: '₾'}}</div>
+    <div class="quantity" >
+      <button (click)="decreaseQty(product)" style="border:rgba(0,0,0,0); border-radius:5px">-</button>
+      <span>{{product.quantity }}</span>
+      <button (click)="increaseQty(product)" style="border:rgba(0,0,0,0); border-radius:5px">+</button>
+      <div ><button class="checkout" style="width:10rem; font-size:12px" (click)="removeItem(product)">Remove</button></div>
+    </div>
+    <div class="totals-item"><div class="totals-value">{{totalPrice | currency: '₾'}} </div></div>
+
+  
+
+  </div>
+  <div style="display: flex; flex-direction: column;">
+    <button class="checkout" style="float:left; width:20rem;" routerLink="/products">Continue Shopping</button>
+    <button class="checkout" style="float:left; width:20rem;" (click)="emptyCart()">Empty cart</button>
+  </div>
+  
+    <!-- <div class="totalprice">Total Price: {{totalPrice}}</div> -->
+
+  <!-- ----------------------------------- -->
+  <div class="totals">
+    <div class="totals-item"><label>Subtotal</label><div class="totals-value" id="cart-subtotal"> {{totalPrice}}</div></div>
+    <div class="totals-item"><label>Tax (18%)</label><div class="totals-value" id="cart-tax">{{tax()}}</div></div>
+    <div class="totals-item"><label>Shipping</label><div class="totals-value" id="cart-shipping">0.00</div></div>
+    <div class="totals-item totals-item-total"><label>Grand Total</label><div class="totals-value" id="cart-total">{{grandTotal()}}</div></div>
+  </div>
+   
+     <button class="checkout" (click)="checkout()">Checkout</button>
+        
+    </div>
+
+</section>
