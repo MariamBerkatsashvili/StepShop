@@ -12,7 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: 'products', component: ProductsComponent },
   {path: 'item', component: ItemComponent},
   {path: 'item/:id', component: ItemComponent},
   {path: 'registration', component: RegistrationComponent},
@@ -22,6 +22,7 @@ const routes: Routes = [
   {path: 'path', component: CartComponent},
   {path: '**', component: NotFoundComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

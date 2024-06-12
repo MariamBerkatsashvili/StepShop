@@ -5,6 +5,7 @@ import { CartService } from '../services/cart.service';
 import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,7 @@ export class CartComponent {
   totalPrice!:number;
   // qty!:number; 
   
-  constructor( private http:HttpClient, private cartsvc:CartService, private loginsvc:LoginService, private router:Router ){}
+  constructor( private http:HttpClient, private cartsvc:CartService, private loginsvc:LoginService, private router:Router, private productsvc: ProductsService ){}
 
 
   ngOnInit():void{
@@ -26,7 +27,7 @@ export class CartComponent {
 
     this.cartsvc.getProducts().subscribe(result=>{
       this.products = result;
-      this.totalPrice = this.cartsvc.getTotalPrice().toFixed(2);
+      this.totalPrice = this.cartsvc.getTotalPrice();
     })  
   }
 

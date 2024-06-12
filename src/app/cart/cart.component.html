@@ -12,7 +12,7 @@
       <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793z"/>
       <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
       </svg></div>
-    <div><button style="margin-top:50px; color: #E2C2AD" routerLink="/products" id="toShopBtn">  Return to Shop   </button> </div>
+    <!-- <div><button style="margin-top:50px; color: #E2C2AD" routerLink="/products"  id="toShopBtn" >  Return to Shop   </button> </div> -->
 </div>
 
 
@@ -25,7 +25,7 @@
     <label class="product-price">Price</label>
     <label class="product-quantity">Quantity</label>
     <label class="product-removal">Remove</label>
-    <label class="product-line-price">Total</label>
+    <!-- <label class="product-line-price">Total</label> -->
   </div>
    
   <div class="product  " *ngFor="let product of products; ">
@@ -41,15 +41,15 @@
       <button (click)="decreaseQty(product)" style="border:rgba(0,0,0,0); border-radius:5px">-</button>
       <span>{{product.quantity }}</span>
       <button (click)="increaseQty(product)" style="border:rgba(0,0,0,0); border-radius:5px">+</button>
-      <div ><button class="checkout" style="width:10rem; font-size:12px" (click)="removeItem(product)">Remove</button></div>
+      <div ><button class="checkout product-removal" style="width:10rem; font-size:12px" (click)="removeItem(product)">Remove</button></div>
     </div>
-    <div class="totals-item"><div class="totals-value">{{totalPrice | currency: '₾'}} </div></div>
+    <div class="totals-item" style="color:#E2C2AD"> Total: {{product.price*product.quantity | currency: '₾'}}</div>
 
   
 
   </div>
   <div style="display: flex; flex-direction: column;">
-    <button class="checkout" style="float:left; width:20rem;" routerLink="/products">Continue Shopping</button>
+    <!-- <button class="checkout" style="float:left; width:20rem;" routerLink="/products">Continue Shopping</button> -->
     <button class="checkout" style="float:left; width:20rem;" (click)="emptyCart()">Empty cart</button>
   </div>
   

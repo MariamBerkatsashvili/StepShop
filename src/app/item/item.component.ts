@@ -15,9 +15,8 @@ export class ItemComponent {
   // products:product[]=[];  
   randomProduct!: any;
 
-
   constructor( private activeLink: ActivatedRoute, private productsvc: ProductsService, private cartsvc: CartService) { 
-    // this.randomizeItem, this.randomProduct
+
   }
   
   ngOnInit(): void { 
@@ -28,16 +27,6 @@ export class ItemComponent {
   addtoCart(item:any){
     this.cartsvc.addToCart(item)
   }
-// this.activeLink.params.subscribe((data)=>{
-    //   this.productID= +data['id']
-    //   console.log(data['id'])
-    //   this.product=this.productsvc.products.find((product:any)=>{
-    //     return product.id===this.productID
-    //   })
-    // })
-    // imager(item:any){
-    //   return '/assets/images'+ItemComponent.img
-    // }
 
 
   randomizeItem(){

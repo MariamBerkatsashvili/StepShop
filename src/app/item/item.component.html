@@ -3,8 +3,8 @@
 
     <nav style="margin-bottom:20px;">
       <ol class="list">
-        <li class="item"><a routerLink="/home">Home</a></li>
-        <li class="item"><a routerLink="/products">Products</a></li>
+        <li class="item" ><a routerLink="/home">Home</a></li>
+        <li class="item"><a >Products</a></li>
         <li class="item active"><a [routerLink]="'/item/' + product.id">{{product.title}}</a></li>
       </ol>
     </nav>
@@ -33,26 +33,6 @@
     </div>
   
 
-  <div class="grid related-products" style="display:flex; flex-direction:row;">
-    <div class="column-xs-12">
-      <h3>You may also like</h3>
-    </div>
-    <div class="column-xs-12 column-md-4 mayLike">
-      <img [src]='randomProduct.thumbnail'>
-      <h4>{{randomProduct.title}}</h4>
-      <p class="price">{{randomProduct.price}}</p>
-    </div>
-    <div class="column-xs-12 column-md-4 mayLike">
-      <img [src]='randomProduct.thumbnail'>
-      <h4>{{randomProduct.title}}</h4>
-      <p class="price">{{randomProduct.price}}</p>
-    </div>
-    <div class="column-xs-12 column-md-4 mayLike">
-      <img [src]='randomProduct.thumbnail'>
-      <h4>{{randomProduct.title}}</h4>
-      <p class="price">{{randomProduct.price}}</p>
-    </div>
-  </div>
 </div>
  
   

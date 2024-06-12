@@ -32,7 +32,7 @@ ul li {
   margin: 0 1.75rem 0 0; 
 }
 
-a {
+a, li {
   color: #888;
   text-decoration: none;
   transition: all 0.2s ease; }

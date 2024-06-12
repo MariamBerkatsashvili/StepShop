@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit{
   this.loginsvc.user$.subscribe(user => this.username = user);
   // console.log(this.username.firstName)
   this.cartsvc.cartItemsChanged.subscribe(() => {
-    this.cartItemCount = this.cartsvc.getCartItems().length;
+    this.cartItemCount = this.cartsvc.getCartItemsFromSession().length;
   });
 }
 

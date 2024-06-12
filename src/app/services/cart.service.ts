@@ -6,43 +6,46 @@ import { product } from '../product';
   providedIn: 'root'
 })
 export class CartService {
+  cartItems: product[] = this.getCartItemsFromSession();
+  productList = new BehaviorSubject<product[]>(this.cartItems);
+  cartItemsChanged: Subject<product[]> = new Subject<product[]>();
 
-  cartItems: any[] = [];
-  productList = new BehaviorSubject<any[]>([]);
-  cartItemsChanged: Subject<void> = new Subject();
   constructor() {}
+
+  getCartItemsFromSession(): product[] {
+    const storedCartItems = sessionStorage.getItem('cartItems');
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  }
+
+  setCartItemsInSession(items: product[]): void {
+    sessionStorage.setItem('cartItems', JSON.stringify(items));
+  }
+
   getProducts() {
     return this.productList.asObservable();
   }
-  addToCart(product: any) {
+
+  addToCart(product: product) {
     const existingProduct = this.cartItems.find(item => item.id === product.id);
     if (existingProduct) {
-      existingProduct.quantity ++;
+      existingProduct.quantity += 1;
     } else {
-      product.quantity = 1;
-      this.cartItems.push(product);
+      this.cartItems.push({ ...product, quantity: 1 });
     }
-    this.productList.next(this.cartItems);
-    this.cartItemsChanged.next();
-    
+    this.updateCartState();
   }
-  // addToCart(data:product){
-  //   this.cartItems.push(data);
-  //   this.subject.next(this.cartItems);
-  //   console.log(this.cartItems)
-  // }
 
-  removeCartItem(product: any) {
+  removeCartItem(product: product) {
     this.cartItems = this.cartItems.filter(item => item.id !== product.id);
-    this.productList.next(this.cartItems);
-    this.cartItemsChanged.next();
+    this.updateCartState();
   }
+
   removeAllCart() {
     this.cartItems = [];
-    this.productList.next(this.cartItems);
-    this.cartItemsChanged.next();
+    this.updateCartState();
   }
-  updateQuantity(product: any, quantity: number) {
+
+  updateQuantity(product: product, quantity: number) {
     const existingProduct = this.cartItems.find(item => item.id === product.id);
     if (existingProduct) {
       existingProduct.quantity += quantity;
@@ -50,16 +53,21 @@ export class CartService {
         this.removeCartItem(existingProduct);
       }
     }
-    this.productList.next(this.cartItems);
-    this.cartItemsChanged.next();
+    this.updateCartState();
   }
-  getTotalPrice() {
-    return this.cartItems.reduce((total, item) => total + item.price * item.quantity,0);
+
+  getTotalPrice(): number {
+    return Math.round(this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0) * 100) / 100;
   }
-  getCartItems(){
-    return this.cartItems;
-  }
+  
+
   isProductInCart(product: product): boolean {
-    return this.cartItems.some(item => item.product.id === product.id);
+    return this.cartItems.some(item => item.id === product.id);
+  }
+
+  updateCartState() {
+    this.setCartItemsInSession(this.cartItems);
+    this.productList.next(this.cartItems);
+    this.cartItemsChanged.next(this.cartItems);
   }
 }

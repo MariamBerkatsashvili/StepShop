@@ -10,5 +10,5 @@ export interface product{
     stock:number,
     images: [],
     tags:string[0],
-
+    quantity:number;
 }
