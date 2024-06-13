@@ -21,7 +21,9 @@ export class ItemComponent {
   
   ngOnInit(): void { 
     this.productID=+this.activeLink.snapshot.params['id'];
-    this.product=this.productsvc.products.find((item:any)=>item.id===this.productID)
+    this.productsvc.getProducts().subscribe((data: any) => {
+      this.product = data.products.find((item: any) => item.id === this.productID);
+    });
   }
 
   addtoCart(item:any){

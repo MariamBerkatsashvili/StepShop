@@ -36,12 +36,13 @@ export class ProductsComponent implements OnInit{
   }
 
   
-  ngOnInit():void { 
-    //subject-ის subscribe პროდუქტების api-დან
-    this.productsvc.products$.subscribe((data: any) => { 
-      // console.log(...data); 
-      this.products=[...data];
-    }); 
+  ngOnInit(): void {
+    this.productsvc.getProducts().subscribe({
+      next: (data) => {
+        this.products = data.products;
+      },
+      error: (err) => console.error(err)
+    });
   }
   
   filteredProducts: product[] = [];

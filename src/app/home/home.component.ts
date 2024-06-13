@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit(): void { 
-    this.productsvc.products$.subscribe((data: any) => { 
-      this.products=data;
+    this.productsvc.getProducts().subscribe((data: any) => {
+      this.products = data.products;
       // console.log(this.products)
   
     const randomIndex = Math.floor(Math.random() * this.products.length); 
