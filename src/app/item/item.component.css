@@ -20,7 +20,6 @@ body {
 #card1{
   display: flex;
   flex-direction: column;
-  
 }
 
 .product-image{
@@ -90,7 +89,7 @@ img {
   border-radius: 0;
   padding: 1rem 2.5rem;
   font-size: 1rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   cursor: pointer;
   transform: translateZ(0);
   transition: color 0.3s ease;
@@ -135,3 +134,55 @@ img {
         flex-direction: column;
     }
 }  
+
+/* --------review style -------- */
+
+.reviewBox {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-top:40px;
+}
+
+.review {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.reviews h2 {
+  color: #bdac9d;
+  margin-bottom: 10px;
+}
+
+.reviews p {
+  background: #fff;
+  border-left: 3px solid #bdac9d;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border:#bdac9d 1px dotted;
+  color:gold;
+}
+
+button {
+  background-color: #bdac9d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  
+}
+
+button:hover {
+  background-color: #bdac9d;
+  transform: scale(0.8);
+}

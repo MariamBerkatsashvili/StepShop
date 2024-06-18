@@ -1,5 +1,5 @@
 
-<div class="container">
+<section class="container information">
 
     <nav style="margin-bottom:20px;">
       <ol class="list">
@@ -31,8 +31,28 @@
             
         </div>
     </div>
+</section>
+
+<br>
+
+<section class="container reviewBox">
+  <div class="review">  
+    <div class="reviews">
+      <h2>Review</h2>
+
+      <div *ngFor="let review of reviews">
+        <p>{{this.username.firstName}}: {{ review }}</p>
+      </div>
+      <div *ngIf="this.username!==null" >
+        <div id="rating"></div>
+        <textarea [(ngModel)]="review" placeholder="leave your review"></textarea>
+        <button (click)="addreview()">Add review</button>
+      </div>
+    </div>
+  </div>
+</section >
+
+    
   
 
-</div>
- 
   

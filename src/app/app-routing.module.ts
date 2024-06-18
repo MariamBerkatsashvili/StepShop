@@ -20,7 +20,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactPageComponent},
   {path: 'cart', component: CartComponent},
   {path: 'path', component: CartComponent},
-  {path: '**', component: NotFoundComponent}
+  {path: 'StepShop', component: HomeComponent},
+  {path: '**', component: NotFoundComponent},
 ];
 
 
