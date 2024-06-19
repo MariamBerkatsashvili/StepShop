@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Observable, fromEvent } from 'rxjs';
 import { ProductsService } from '../services/products.service';
-// import Swal from 'sweetalert2';
 import { product } from '../product';
 import { HttpClient } from '@angular/common/http';
 // import { Pipe } from '@angular/core';
@@ -30,10 +29,15 @@ export class ProductsComponent implements OnInit{
   products:product[]=[];  
   selectedCategory:string = 'all';
   onSelect: EventEmitter<string> = new EventEmitter<string>()
+  priceFilterValue:number=0;
 
   filterCategories(){
     this.onSelect.emit(this.selectedCategory);
   }
+
+  // filterProductsByPrice() {
+  //   return this.products.filter(product =>product.price>=this.priceFilterValue);
+  // }
 
   
   ngOnInit(): void {

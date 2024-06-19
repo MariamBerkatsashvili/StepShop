@@ -4,28 +4,7 @@
     margin: 0;
     padding: 0;
 }
-/* .searchbox{
-  float:right;
-  display: flex;
-  flex-direction: row;
-  width:10vw;
-} */
 
-/* #search{
-  float:right;
-  display: flex;
-  flex-direction: column;
-  width:6rem;
-  border-radius: 10px;
-  border: 1px solid #E2C2AD;
-  margin:auto;
-  margin-bottom: 10px;
-}
-#search:hover, #search:active{
-  transform: scale(1.1);
-  color:#4089ED;
-  margin:auto
-} */
 
 
 .relative {

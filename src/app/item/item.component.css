@@ -144,12 +144,14 @@ img {
   background: #f9f9f9;
   border-radius: 8px;
   margin-top:40px;
+  font-family: 'Playwrite NG Modern', cursive;
 }
 
 .review {
   border: 1px solid #ddd;
   padding: 15px;
   margin-bottom: 20px;
+  color:#4089ED;
 }
 
 .reviews h2 {
@@ -169,7 +171,7 @@ textarea {
   padding: 10px;
   margin-bottom: 10px;
   border:#bdac9d 1px dotted;
-  color:gold;
+  color:#4089ED;
 }
 
 button {
@@ -185,4 +187,21 @@ button {
 button:hover {
   background-color: #bdac9d;
   transform: scale(0.8);
+}
+.star-rating{
+  margin-top:-20px;
+  margin-bottom:20px;
+}
+
+.bi-star {
+  color: #d2d2d2; 
+  cursor: pointer;
+}
+.bi-star-fill {
+  color: orange; 
+}
+#removeReview{
+  display: inline-flex;
+  margin-left: auto;
+
 }

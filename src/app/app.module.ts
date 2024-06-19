@@ -16,6 +16,7 @@ import { ItemComponent } from './item/item.component';
 import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [
@@ -44,3 +45,4 @@ import { NotFoundComponent } from './not-found/not-found.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
